@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-steps">
+            <!-- Step 1: Create a project -->
+            <div class="step active" id="step-1">
+                <h2>Create a project</h2>
+                <form id="form-1">
+                    <div class="form-group">
+                        <label for="project-name">Project name</label>
+                        <input type="text" id="project-name" name="project-name" placeholder="Enter project name here" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client">Client</label>
+                        <select id="client" name="client" required>
+                            <option value="">Select a client</option>
+                            <option value="new-client">+ New Client</option>
+                            <!-- Add more client options as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date" name="end-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes" placeholder="Optional"></textarea>
+                    </div>
+                    <button type="button" onclick="nextStep(2)">Next</button>
+                </form>
+            </div>
+            
+            <!-- Step 2: Project type -->
+            <div class="step" id="step-2">
+                <h2>Project type</h2>
+                <p>Don't panic — You can also customize these types in settings</p>
+                <form id="form-2">
+                    <div class="form-group">
+                        <label>Type</label>
+                        <div class="button-group">
+                            <button type="button" class="btn active" data-type="time-materials">Time & Materials</button>
+                            <button type="button" class="btn" data-type="fixed-fee">Fixed Fee</button>
+                            <button type="button" class="btn" data-type="non-billable">Non-Billable</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hourly-rate">Hourly Rate</label>
+                        <input type="number" id="hourly-rate" name="hourly-rate" placeholder="₹ 0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget</label>
+                        <select id="budget" name="budget" required>
+                            <option value="hours-per-person">Hours per Person</option>
+                            <!-- Add more budget options as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="budget-resets" name="budget-resets">
+                        <label for="budget-resets">Budget resets every month</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="email-alerts" name="email-alerts" checked>
+                  <label for="email-alerts">Send email alerts if project exceeds</label>
+                        <input type="number" id="alert-threshold" name="alert-threshold" value="80"> % of budget
+                    </div>
+                    <button type="button" onclick="nextStep(1)">Back</button>
+                    <button type="submit">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html
